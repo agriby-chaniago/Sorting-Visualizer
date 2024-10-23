@@ -1,9 +1,6 @@
 import { Tabs } from "expo-router";
 import React from "react";
-
-import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
-
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 export default function TabLayout() {
@@ -12,19 +9,18 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: "#14ffec",
+        tabBarInactiveTintColor: "#0d7377",
+        tabBarStyle: {
+          backgroundColor: "#323232",
+          borderTopWidth: 0,
+          height: 60,
+          paddingBottom: 10,
+          paddingTop: 10,
+        },
         headerShown: false,
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="bar-chart" size={24} color={color} />
-          ),
-        }}
-      />
       <Tabs.Screen
         name="bubbleSort"
         options={{
@@ -48,11 +44,29 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="bar-chart" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="selectionSort"
         options={{
           title: "Selection Sort",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="stacked-bar-chart" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: "About",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="info" size={24} color={color} />
           ),
         }}
       />
